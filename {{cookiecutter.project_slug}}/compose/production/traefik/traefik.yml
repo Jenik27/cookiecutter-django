@@ -14,11 +14,9 @@ entryPoints:
   web-secure:
     # https
     address: ':443'
-  {%- if cookiecutter.use_celery == 'y' %}
 
   flower:
     address: ':5555'
-  {%- endif %}
 
 certificatesResolvers:
   letsencrypt:
@@ -46,7 +44,7 @@ http:
       tls:
         # https://doc.traefik.io/traefik/routing/routers/#certresolver
         certResolver: letsencrypt
-    {%- if cookiecutter.use_celery == 'y' %}
+
 
     flower-secure-router:
       rule: 'Host(`{{ cookiecutter.domain_name }}`)'
@@ -56,23 +54,6 @@ http:
       tls:
         # https://doc.traefik.io/traefik/master/routing/routers/#certresolver
         certResolver: letsencrypt
-    {%- endif %}
-    {%- if cookiecutter.cloud_provider == 'None' %}
-
-    web-media-router:
-      {%- if cookiecutter.domain_name.count('.') == 1 %}
-      rule: '(Host(`{{ cookiecutter.domain_name }}`) || Host(`www.{{ cookiecutter.domain_name }}`)) && PathPrefix(`/media/`)'
-      {%- else %}
-      rule: 'Host(`{{ cookiecutter.domain_name }}`) && PathPrefix(`/media/`)'
-      {%- endif %}
-      entryPoints:
-        - web-secure
-      middlewares:
-        - csrf
-      service: django-media
-      tls:
-        certResolver: letsencrypt
-    {%- endif %}
 
   middlewares:
     csrf:
@@ -86,20 +67,13 @@ http:
       loadBalancer:
         servers:
           - url: http://django:5000
-    {%- if cookiecutter.use_celery == 'y' %}
+
 
     flower:
       loadBalancer:
         servers:
           - url: http://flower:5555
-    {%- endif %}
-    {%- if cookiecutter.cloud_provider == 'None' %}
 
-    django-media:
-      loadBalancer:
-        servers:
-          - url: http://nginx:80
-    {%- endif %}
 
 providers:
   # https://doc.traefik.io/traefik/master/providers/file/

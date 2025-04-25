@@ -10,24 +10,8 @@ keywords = [
   "scaffolding",
   "skeleton",
 ]
-license = { text = "BSD" }
-authors = [
-  { name = "Daniel Roy Greenfeld", email = "pydanny@gmail.com" },
-]
 requires-python = ">=3.12,<3.13"
-classifiers = [
-  "Development Status :: 4 - Beta",
-  "Environment :: Console",
-  "Framework :: Django :: 5.0",
-  "Intended Audience :: Developers",
-  "License :: OSI Approved :: BSD License",
-  "Natural Language :: English",
-  "Programming Language :: Python",
-  "Programming Language :: Python :: 3 :: Only",
-  "Programming Language :: Python :: 3.12",
-  "Programming Language :: Python :: Implementation :: CPython",
-  "Topic :: Software Development",
-]
+
 dependencies = [
   "binaryornot==0.4.4",
   "cookiecutter==2.6",
@@ -48,15 +32,7 @@ dependencies = [
   "tox==4.23.2",
   "tox-uv>=1.17",
 ]
-urls = { Repository = "https://github.com/cookiecutter/cookiecutter-django" }
-
-[dependency-groups]
-docs = [
-  "myst-parser>=4",
-  "sphinx>=8.0.2",
-  "sphinx-autobuild>=2024.10.3",
-  "sphinx-rtd-theme>=3",
-]
+urls = { Repository = "https://github.com/Jenik27/cookiecutter-django" }
 
 [tool.black]
 line-length = 119

@@ -14,14 +14,12 @@ updates:
         patterns:
           - '*'
 
-{%- if cookiecutter.use_docker == 'y' %}
 
   # Enable version updates for Docker
   - package-ecosystem: 'docker'
     # Look for a `Dockerfile` in the `compose/local/django` directory
     directories:
       - 'compose/local/django/'
-      - 'compose/local/docs/'
       - 'compose/production/django/'
     # Every weekday
     schedule:
@@ -41,18 +39,12 @@ updates:
   - package-ecosystem: 'docker'
     # Look for a `Dockerfile` in the listed directories
     directories:
-      - 'compose/local/node/'
-      - 'compose/production/aws/'
       - 'compose/production/postgres/'
       - 'compose/production/traefik/'
-{%- if cookiecutter.cloud_provider == 'None' %}
-      - 'compose/production/nginx/'
-{%- endif %}
     # Every weekday
     schedule:
       interval: 'daily'
 
-{%- endif %}
 
   # Enable version updates for Python/Pip - Production
   - package-ecosystem: 'pip'

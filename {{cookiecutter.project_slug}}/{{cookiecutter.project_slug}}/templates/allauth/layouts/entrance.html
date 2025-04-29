@@ -1,31 +1,50 @@
-{% raw %}{% extends "base.html" %}
-{% load i18n %}
-{% block bodyclass %}bg-light{% endblock bodyclass %}
+{% extends "base.html" %}
 
-{% block css %}{{ block.super }}{% endblock css %}
+{% load i18n %}
+
+{% block bodyclass %}
+  bg-light
+{% endblock bodyclass %}
+{% block css %}
+  {{ block.super }}
+{% endblock css %}
 {% block title %}
   {% block head_title %}
     {% trans "Sign In" %}
   {% endblock head_title %}
 {% endblock title %}
 {% block body %}
-  <div class="d-flex justify-content-center h-100 py-4">
-    <div class="col-md-4 py-4 my-4 px-4">
-      {% if messages %}
-        {% for message in messages %}
-          <div class="alert alert-dismissible {% if message.tags %}alert-{{ message.tags }}{% endif %}">
-            {{ message }}
-            <button type="button"
-                    class="btn-close"
-                    data-bs-dismiss="alert"
-                    aria-label="Close"></button>
-          </div>
-        {% endfor %}
-      {% endif %}
-      {% block content %}
-      {% endblock content %}
+  <div class="flex min-h-dvh flex-col p-2">
+    <div class="py-12 sm:px-6 lg:px-8">
+      <div class="sm:mx-auto sm:w-full sm:max-w-md">
+        <img class="mx-auto h-10 w-auto"
+             src="https://tailwindcss.com/plus-assets/img/logos/mark.svg?color=indigo&shade=600"
+             alt="Your Company" />
+        <h2 class="mt-6 text-center text-2xl/9 font-bold tracking-tight text-gray-900">
+          {% block form_title %}
+            {% trans "Sign In" %}
+          {% endblock form_title %}
+        </h2>
+      </div>
+      <div class="mt-10 sm:mx-auto sm:w-full sm:max-w-[480px]">
+        <div class="bg-white px-6 py-12 shadow-sm sm:rounded-lg sm:px-12">
+          {% if form.errors %}
+            <div class="rounded-md bg-red-50 p-4 mb-4 border border-red-500">
+              {% for field, errors in form.errors.items %}
+                {% if field == '__all__' %}
+                  {% for error in errors %}<div class="text-sm text-red-700">{{ error }}</div>{% endfor %}
+                {% else %}
+                  {% for error in errors %}<div class="text-sm text-red-700">{{ field|title }}: {{ error }}</div>{% endfor %}
+                {% endif %}
+              {% endfor %}
+            </div>
+          {% endif %}
+          {% block content %}
+          {% endblock content %}
+        </div>
+      </div>
       {% block extra_body %}
       {% endblock extra_body %}
     </div>
   </div>
-{% endblock body %}{% endraw %}
+{% endblock body %}

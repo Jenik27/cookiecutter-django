@@ -1,3 +1,4 @@
+{% raw %}
 import * as Headless from '@headlessui/react'
 import clsx from 'clsx'
 import React, { forwardRef } from 'react'
@@ -202,3 +203,4 @@ export function TouchTarget({ children }: { children: React.ReactNode }) {
     </>
   )
 }
+{% endraw %}

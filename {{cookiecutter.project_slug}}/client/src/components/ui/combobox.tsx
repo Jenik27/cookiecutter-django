@@ -1,4 +1,5 @@
-'use client'
+{% raw %}
+
 
 import * as Headless from '@headlessui/react'
 import clsx from 'clsx'
@@ -186,3 +187,4 @@ export function ComboboxDescription({ className, children, ...props }: React.Com
     </span>
   )
 }
+{% endraw %}

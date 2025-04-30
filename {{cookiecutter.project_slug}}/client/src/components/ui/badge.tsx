@@ -1,3 +1,4 @@
+{% raw %}
 import * as Headless from '@headlessui/react'
 import clsx from 'clsx'
 import React, { forwardRef } from 'react'
@@ -80,3 +81,4 @@ export const BadgeButton = forwardRef(function BadgeButton(
     </Headless.Button>
   )
 })
+{% endraw %}

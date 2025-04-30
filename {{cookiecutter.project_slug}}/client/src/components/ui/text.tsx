@@ -1,3 +1,4 @@
+{% raw %}
 import clsx from 'clsx'
 import { Link } from './link'
 
@@ -38,3 +39,4 @@ export function Code({ className, ...props }: React.ComponentPropsWithoutRef<'co
     />
   )
 }
+{% endraw %}

@@ -1,3 +1,4 @@
+{% raw %}
 import * as Headless from '@headlessui/react'
 import clsx from 'clsx'
 import React, { forwardRef } from 'react'
@@ -66,3 +67,4 @@ export const Select = forwardRef(function Select(
     </span>
   )
 })
+{% endraw %}

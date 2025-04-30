@@ -1,3 +1,4 @@
+{% raw %}
 import clsx from 'clsx'
 
 export function DescriptionList({ className, ...props }: React.ComponentPropsWithoutRef<'dl'>) {
@@ -35,3 +36,4 @@ export function DescriptionDetails({ className, ...props }: React.ComponentProps
     />
   )
 }
+{% endraw %}

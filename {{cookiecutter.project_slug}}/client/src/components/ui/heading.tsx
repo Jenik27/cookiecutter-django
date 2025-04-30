@@ -1,3 +1,4 @@
+{% raw %}
 import clsx from 'clsx'
 
 type HeadingProps = { level?: 1 | 2 | 3 | 4 | 5 | 6 } & React.ComponentPropsWithoutRef<
@@ -25,3 +26,4 @@ export function Subheading({ className, level = 2, ...props }: HeadingProps) {
     />
   )
 }
+{% endraw %}

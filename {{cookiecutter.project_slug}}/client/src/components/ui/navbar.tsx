@@ -1,5 +1,4 @@
-'use client'
-
+{% raw %}
 import * as Headless from '@headlessui/react'
 import clsx from 'clsx'
 import { LayoutGroup, motion } from 'framer-motion'
@@ -94,3 +93,4 @@ export const NavbarItem = forwardRef(function NavbarItem(
 export function NavbarLabel({ className, ...props }: React.ComponentPropsWithoutRef<'span'>) {
   return <span {...props} className={clsx(className, 'truncate')} />
 }
+{% endraw %}

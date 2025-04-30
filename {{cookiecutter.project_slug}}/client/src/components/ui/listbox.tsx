@@ -1,5 +1,4 @@
-'use client'
-
+{% raw %}
 import * as Headless from '@headlessui/react'
 import clsx from 'clsx'
 import { Fragment } from 'react'
@@ -175,3 +174,4 @@ export function ListboxDescription({ className, children, ...props }: React.Comp
     </span>
   )
 }
+{% endraw %}

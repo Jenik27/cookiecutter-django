@@ -1,3 +1,4 @@
+{% raw %}
 import type React from 'react'
 
 export function AuthLayout({ children }: { children: React.ReactNode }) {
@@ -9,3 +10,4 @@ export function AuthLayout({ children }: { children: React.ReactNode }) {
     </main>
   )
 }
+{% endraw %}

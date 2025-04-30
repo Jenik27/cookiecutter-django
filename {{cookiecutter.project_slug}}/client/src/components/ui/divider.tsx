@@ -1,3 +1,4 @@
+{% raw %}
 import clsx from 'clsx'
 
 export function Divider({
@@ -18,3 +19,4 @@ export function Divider({
     />
   )
 }
+{% endraw %}

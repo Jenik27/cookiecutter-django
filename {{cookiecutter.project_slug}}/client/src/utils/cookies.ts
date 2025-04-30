@@ -1,5 +1,5 @@
 // @ts-nocheck
-
+{% raw %}
 function getCookie(name) {
   let cookieValue = null;
   if (document.cookie && document.cookie !== "") {
@@ -19,3 +19,4 @@ export function getCSRFToken() {
   const token = getCookie("csrftoken");
   return token || "";
 }
+{% endraw %}

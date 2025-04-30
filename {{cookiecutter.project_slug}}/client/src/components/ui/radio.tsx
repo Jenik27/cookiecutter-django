@@ -1,3 +1,4 @@
+{% raw %}
 import * as Headless from '@headlessui/react'
 import clsx from 'clsx'
 
@@ -140,3 +141,4 @@ export function Radio({
     </Headless.Radio>
   )
 }
+{% endraw %}

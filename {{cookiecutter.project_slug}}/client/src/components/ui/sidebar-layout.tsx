@@ -1,5 +1,4 @@
-'use client'
-
+{% raw %}
 import * as Headless from '@headlessui/react'
 import React, { useState } from 'react'
 import { NavbarItem } from './navbar'
@@ -80,3 +79,4 @@ export function SidebarLayout({
     </div>
   )
 }
+{% endraw %}

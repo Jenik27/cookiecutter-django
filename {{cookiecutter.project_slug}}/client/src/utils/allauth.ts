@@ -1,5 +1,5 @@
 // @ts-nocheck
-
+{% raw %}
 import { getCSRFToken } from "./cookies";
 
 export const Client = Object.freeze({
@@ -429,3 +429,4 @@ export function setup(client, baseUrl, withCredentials) {
   settings.baseUrl = baseUrl;
   settings.withCredentials = withCredentials;
 }
+{% endraw %}

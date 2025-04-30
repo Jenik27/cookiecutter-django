@@ -1,3 +1,4 @@
+{% raw %}
 import * as Headless from '@headlessui/react'
 import clsx from 'clsx'
 import React, { forwardRef } from 'react'
@@ -82,3 +83,4 @@ export const AvatarButton = forwardRef(function AvatarButton(
     </Headless.Button>
   )
 })
+{% endraw %}

@@ -22,13 +22,17 @@ http:
     django:
       service: django
       rule: >
-        PathPrefix(`/`) ||
-        PathPrefix(`/admin`) || PathPrefix(`/static`) || PathPrefix(`/api`) || PathPrefix(`/django`)
+        Path(`/`) || 
+        PathPrefix(`/accounts`) || 
+        PathPrefix(`/_allauth`) || 
+        PathPrefix(`/admin`) || 
+        PathPrefix(`/static`) || 
+        PathPrefix(`/api`)
       entryPoints:
         - web
     react:
       service: react
-      rule: "PathPrefix(`/app`) "
+      rule: "PathPrefix(`/`) && !Path(`/`) && !PathPrefix(`/accounts`) && !PathPrefix(`/_allauth`) && !PathPrefix(`/admin`) && !PathPrefix(`/static`) && !PathPrefix(`/api`)"
       entryPoints:
         - web
   middlewares:

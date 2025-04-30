@@ -4,15 +4,12 @@ export const Route = createFileRoute("/_auth")({
   beforeLoad: async ({ location }) => {
     const auth = await getAuth();
     if (!auth?.meta?.is_authenticated) {
-      throw redirect({
-        to: "/",
-        search: {
-          // Use the current location to power a redirect after login
-          // (Do not use `router.state.resolvedLocation` as it can
-          // potentially lag behind the actual current location)
-          redirect: location.href,
-        },
-      });
+      // Instead of using TanStack redirect, navigate to Django's URL directly
+      window.location.href = `/accounts/login/?next=${encodeURIComponent(
+        location.href
+      )}`;
+      // Return a temporary value to satisfy TypeScript
+      return {};
     }
   },
 });

@@ -1,4 +1,5 @@
 // @ts-nocheck
+{% raw %}
 import { useEffect, createContext, useState } from "react";
 import { getAuth, getConfig } from "../utils/allauth";
 
@@ -57,3 +58,4 @@ export function AuthContextProvider(props) {
     </AuthContext.Provider>
   );
 }
+{% endraw %}

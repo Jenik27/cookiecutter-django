@@ -81,6 +81,7 @@ THIRD_PARTY_APPS = [
     "allauth.account",
     "allauth.mfa",
     "allauth.socialaccount",
+    "allauth.headless"
 
     # "django_celery_beat",
 

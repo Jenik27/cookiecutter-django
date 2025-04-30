@@ -105,7 +105,7 @@ def generate_random_user():
     return generate_random_string(length=32, using_ascii_letters=True)
 
 
-def generate_postgres_user(debug=False):
+def generate_postgres_user(debug=True):
     return DEBUG_VALUE if debug else generate_random_user()
 
 
@@ -188,9 +188,9 @@ def remove_celery_compose_dirs():
 def main():
 
     set_flags_in_envs(
-        generate_random_user(),
-        generate_random_user(),
-        debug=False,
+        DEBUG_VALUE,
+        DEBUG_VALUE,
+        debug=True,
     )
     set_flags_in_settings_files()
 

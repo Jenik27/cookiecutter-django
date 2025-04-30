@@ -4,6 +4,17 @@ volumes:
   {{ cookiecutter.project_slug }}_local_redis_data: {}
 
 services:
+  react:
+    build:
+      context: .
+      dockerfile: ./compose/local/react/Dockerfile
+    image: {{ cookiecutter.project_slug }}_local_react
+    container_name: {{ cookiecutter.project_slug }}_local_react
+    volumes:
+      - ./client:/app/client:z
+    ports:
+      - "5173:5173"
+
   django: &django
     build:
       context: .
@@ -35,6 +46,14 @@ services:
     env_file:
       - ./.envs/.local/.postgres
 
+  traefik:
+    image: traefik:latest
+    container_name: {{ cookiecutter.project_slug }}_local_traefik
+    volumes:
+      - ./compose/local/traefik/traefik.yml:/etc/traefik/traefik.yml:ro
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+    ports:
+      - "4000:4000"
 
 
   mailpit:
@@ -82,3 +101,5 @@ services:
     ports:
       - '5555:5555'
     command: /start-flower
+
+  

@@ -158,9 +158,9 @@ def set_flags_in_envs(postgres_user, celery_flower_user, debug=False):
     set_django_secret_key(production_django_envs_path)
     set_django_admin_url(production_django_envs_path)
 
-    set_postgres_user(local_postgres_envs_path, value=postgres_user)
-    set_postgres_password(local_postgres_envs_path, value=None)
-    set_postgres_user(production_postgres_envs_path, value=postgres_user)
+    set_postgres_user(local_postgres_envs_path, value="debug")
+    set_postgres_password(local_postgres_envs_path, value="debug")
+    set_postgres_user(production_postgres_envs_path, value="postgres_admin")
     set_postgres_password(production_postgres_envs_path, value=None)
 
     set_celery_flower_user(local_django_envs_path, value=celery_flower_user)
@@ -188,7 +188,7 @@ def remove_celery_compose_dirs():
 def main():
 
     set_flags_in_envs(
-        DEBUG_VALUE,
+        generate_random_user,
         DEBUG_VALUE,
         debug=True,
     )
